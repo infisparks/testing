@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World — Next-Gen Interactive Experience</title>
+  <meta name="description" content="A visually stunning, modern, interactive Hello World web experience featuring fluid canvas particles, glassmorphism, and responsive sound design.">
+  <meta name="theme-color" content="#0a0a14">
+
+  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-cyan">
+  <!-- Interactive Canvas Background -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow orb-2" aria-hidden="true"></div>
+  <div class="ambient-glow orb-3" aria-hidden="true"></div>
+
+  <!-- Noise Overlay for Cinematic Texture -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <div class="app-wrapper">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav" id="main-header">
+      <div class="brand-badge">
+        <span class="status-pulse"></span>
+        <span class="brand-label">SYSTEM : ONLINE</span>
+      </div>
+
+      <div class="nav-controls">
+        <div class="theme-picker" id="theme-selector" role="radiogroup" aria-label="Theme Accent">
+          <button class="theme-btn active" data-theme="cyan" title="Cyber Cyan" aria-label="Cyber Cyan theme"></button>
+          <button class="theme-btn" data-theme="violet" title="Neon Violet" aria-label="Neon Violet theme"></button>
+          <button class="theme-btn" data-theme="emerald" title="Matrix Emerald" aria-label="Matrix Emerald theme"></button>
+          <button class="theme-btn" data-theme="amber" title="Solar Amber" aria-label="Solar Amber theme"></button>
+        </div>
+
+        <button id="sound-toggle-btn" class="icon-btn" aria-label="Toggle sound effects" title="Audio Effects">
+          <svg class="sound-icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="sound-icon sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Hero Presentation -->
+    <main class="main-content" id="hero-section">
+      <div class="card-perspective-container">
+        <section class="hero-card" id="interactive-card">
+          <div class="card-shine" aria-hidden="true"></div>
+
+          <!-- Top Badge inside Card -->
+          <div class="greeting-badge">
+            <span class="badge-icon">✨</span>
+            <span id="dynamic-greeting-label">WELCOME TO THE FUTURE</span>
+          </div>
+
+          <!-- Main Headline with Gradient & Glow -->
+          <div class="headline-container">
+            <h1 class="hero-title" id="main-greeting">
+              <span class="title-text">Hello, World!</span>
+            </h1>
+            <p class="hero-subtitle" id="language-subtext">
+              English <span class="divider">•</span> Global Debut
+            </p>
+          </div>
+
+          <!-- Multilingual Quick Switcher -->
+          <div class="languages-bar" role="tablist" aria-label="Select greeting language">
+            <button class="lang-pill active" data-lang="en" data-greeting="Hello, World!" data-desc="English • Global Debut" id="lang-en">English</button>
+            <button class="lang-pill" data-lang="hi" data-greeting="नमस्ते, दुनिया!" data-desc="Hindi • Welcome with respect" id="lang-hi">हिन्दी</button>
+            <button class="lang-pill" data-lang="es" data-greeting="¡Hola, Mundo!" data-desc="Spanish • Warm & Vibrant" id="lang-es">Español</button>
+            <button class="lang-pill" data-lang="ja" data-greeting="こんにちは、世界！" data-desc="Japanese • Elegant & Pure" id="lang-ja">日本語</button>
+            <button class="lang-pill" data-lang="fr" data-greeting="Bonjour le Monde!" data-desc="French • Artful & Expressive" id="lang-fr">Français</button>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="action-buttons-group">
+            <button id="spark-btn" class="primary-btn glow-effect">
+              <span class="btn-sparkle">✦</span>
+              <span class="btn-text">Spark Magic</span>
+              <span class="btn-ripple"></span>
+            </button>
+            
+            <button id="cycle-btn" class="secondary-btn">
+              <svg class="cycle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              <span>Next Language</span>
+            </button>
+          </div>
+
+          <!-- Live Metrics Bar inside Card -->
+          <div class="stats-grid" id="stats-panel">
+            <div class="stat-item">
+              <span class="stat-label">LOCAL TIME</span>
+              <span class="stat-value" id="live-time-display">00:00:00</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-label">EXPLORATION</span>
+              <span class="stat-value" id="click-counter">0 Sparks</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-label">PERFORMANCE</span>
+              <span class="stat-value stat-highlight" id="fps-counter">60 FPS</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer Information -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>Crafted with precision & modern web standards • Smooth 60FPS Experience</p>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3 Modern</span>
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Web Audio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
